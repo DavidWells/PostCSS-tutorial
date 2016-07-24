@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+  background: $primary;
+  @mixin OpenSans;
+}
+
+.App-logo {
+  animation: spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
