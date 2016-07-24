@@ -1,22 +1,32 @@
-.App {
+/* will compile to: App__app___NghkZ */
+.app {
   text-align: center;
   background: $primary;
   @mixin OpenSans;
 }
-
-.App-logo {
+/* will compile to: App__header___hwRc6 */
+.logo {
   animation: spin infinite 20s linear;
   height: 80px;
 }
-
-.App-header {
+/* will compile to: App__logo___3CJMU */
+.header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
 }
-
-.App-intro {
+/* will compile to: App__intro___1dzYQ */
+.intro {
   font-size: large;
 }
 
+.localExample {
+  background: orange;
+}
+
+:global {
+  .global-class-name {
+    background: green;
+  }
+}

@@ -70,14 +70,14 @@ require('postcss-initial')({
 require('postcss-import'),
 /* enable mixins like Sass/Less */
 require('postcss-mixins')({
-  mixins: require('./mixins')
+  mixins: require('../src/mixins')
 }),
 /* enable nested css selectors like Sass/Less */
 require('postcss-nested'),
 /* require global variables */
 require('postcss-simple-vars')({
   variables: function variables() {
-    return require('./variables')
+    return require('../src/variables')
   },
   unknown: function unknown(node, name, result) {
     node.warn(result, 'Unknown variable ' + name)
@@ -96,7 +96,7 @@ module.exports = postCSSConfig;
 Also create `variables.js` and `mixins.js` in your config folder
 
 ```js
-// mixins.js
+// src/mixins.js
 var globalMixins = {
   OpenSans: {
     'font-family': 'Open Sans, sans-serif',
@@ -110,7 +110,7 @@ module.exports = globalMixins
 ```
 
 ```js
-// variables.js
+// src/variables.js
 var globalVariable = {
   primary: 'blue'
 }
@@ -119,25 +119,42 @@ module.exports = globalVariable
 
 # Now import the PostCSS config file into your webpack.config
 
-```
+```js
 // in /config/webpack.config.dev.js
-var postCSSConfig = require('../config/postcss.config')
+/* import postcss config array */
+var postCSSConfig = require('./postcss.config')
 
 // in the webpack config add the postCSS Config Array.
-postcss: function() {
-  return postCSSConfig;
-},
+module.exports = {
+  entry: [...],
+  output: {...},
+  resolve: { extensions: [...] },
+  resolveLoader: {...},
+  module: { loaders: [...] },
+  // Add postcss to webpack config object
+  postcss: function() {
+    return postCSSConfig;
+  },
+  plugins: [...]
+}
 ```
 
-# Now in `/src/App.css`
+# Usage:
+
+## Variables + Mixins
 
 You can now use the global mixins and variables!
 
-```
+Now in `/src/App.css`
+
+```css
+/* /src/App.css */
 .App {
   text-align: center;
   background: $primary;
   @mixin OpenSans;
 }
 ```
+
+# Profit
 
