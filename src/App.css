@@ -1,8 +1,6 @@
 /* will compile to: App__app___NghkZ */
 .app {
   text-align: center;
-  background: $primary;
-  @mixin OpenSans;
 }
 /* will compile to: App__header___hwRc6 */
 .logo {
@@ -18,14 +16,17 @@
 }
 /* will compile to: App__intro___1dzYQ */
 .intro {
-  font-size: large;
+  color: $primary; /* variable usage */
+  @mixin noSelect; /* mixin usage */
+  @mixin OpenSans 30px; /* mixin with value usage */
 }
-
+/* will compile to: App__localExample___dadq2 */
 .localExample {
   background: orange;
 }
 
 :global {
+  /* will compile to: global-class-name */
   .global-class-name {
     background: green;
   }

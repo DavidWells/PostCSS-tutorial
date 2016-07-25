@@ -98,12 +98,25 @@ Also create `variables.js` and `mixins.js` in your config folder
 ```js
 // src/mixins.js
 var globalMixins = {
-  OpenSans: {
-    'font-family': 'Open Sans, sans-serif',
-    'font-style': 'normal',
-    'font-weight': 200,
-    '-webkit-font-smoothing': 'antialiased',
-    '-moz-osx-font-smoothing': 'grayscale'
+  /* noSelect is a static mixin  */
+  noSelect: {
+    '-webkit-touch-callout': 'none',
+    '-webkit-user-select': 'none',
+    '-khtml-user-select': 'none',
+    '-moz-user-select': 'none',
+    '-ms-user-select': 'none',
+    'user-select': 'none'
+  },
+  /* OpenSans is a dynamic mixin  */
+  OpenSans: function (obj, value) {
+    return {
+      'font-family': 'Open Sans, sans-serif',
+      'font-style': 'normal',
+      'font-size': value,
+      'font-weight': 200,
+      '-webkit-font-smoothing': 'antialiased',
+      '-moz-osx-font-smoothing': 'grayscale'
+    }
   }
 }
 module.exports = globalMixins
@@ -141,6 +154,30 @@ module.exports = {
 
 # Usage:
 
+## Using ClassNames
+
+```
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import styles from './App.css';
+
+class App extends Component {
+  render() {
+    return (
+      <div className={styles.app}>
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Welcome to React</h2>
+        </div>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+      </div>
+    );
+  }
+}
+```
+
 ## Variables + Mixins
 
 You can now use the global mixins and variables!
@@ -148,11 +185,11 @@ You can now use the global mixins and variables!
 Now in `/src/App.css`
 
 ```css
-/* /src/App.css */
-.App {
-  text-align: center;
-  background: $primary;
-  @mixin OpenSans;
+/* in /src/App.css */
+.intro {
+  color: $primary; /* variable usage */
+  @mixin noSelect; /* mixin usage */
+  @mixin OpenSans 30px; /* mixin with value usage */
 }
 ```
 
