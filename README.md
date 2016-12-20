@@ -3,7 +3,7 @@
 npm install -g create-react-app
 ```
 
-# Create the app with create-react-app CLI
+# Create the app with create-react-app CLI.
 ```bash
 # create with create-react-app PROJECT_NAME
 create-react-app postcss-example
