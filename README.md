@@ -1,4 +1,4 @@
-# Install the create-react-app CLI
+# Install the create-react-app CLI!
 ```
 npm install -g create-react-app
 ```
