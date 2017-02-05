@@ -152,7 +152,7 @@ module.exports = {
 }
 ```
 
-# Usage:
+# Usage: Wow
 
 ## Using ClassNames
 
