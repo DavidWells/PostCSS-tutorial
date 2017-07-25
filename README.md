@@ -9,7 +9,7 @@ npm install -g create-react-app
 create-react-app postcss-example
 # change into the postcss-example directory
 cd postcss-example
-# eject the app to expose dependancies and configuration files
+# eject the app to expose dependencies and configuration files
 npm run eject
 ```
 
@@ -47,7 +47,7 @@ There is a lot to digest here. Let's break it down piece by piece.
 
 `&camelCase` sets the option to convert dash cased class names like `my-class-name` to be `myClassName` in your javascript
 
-# Install Your PostCSS dependancies
+# Install Your PostCSS dependencies
 
 I recommend using:
 
