@@ -1,5 +1,5 @@
 # Install the create-react-app CLI
-```
+```bash
 npm install -g create-react-app
 ```
 
@@ -14,7 +14,7 @@ npm run eject
 ```
 
 # Hook up CSS modules
-```
+```js
 // change: webpack.config.dev.js
 {
    test: /\.css$/,
@@ -58,7 +58,7 @@ npm i autoprefixer postcss-initial postcss-import postcss-mixins postcss-nested 
 # Now setup a postCSS config file:
 
 Inside `/config` folder create a postcss.config.js file
-```
+```js
 var postCSSConfig = [
 /* autoprefix for different browser vendors */
 require('autoprefixer'),
@@ -156,7 +156,7 @@ module.exports = {
 
 ## Using ClassNames
 
-```
+```jsx
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import styles from './App.css';
